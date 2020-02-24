@@ -26,7 +26,7 @@ export default {
 	data() {
 		return {
 			errorFormText: {
-				errorEmailRequired: 'asd'
+				errorEmailRequired: 'needs an email'
 			}
 		}
 	},
