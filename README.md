@@ -44,6 +44,7 @@ Vue.use(LoginComponent)
 |:-------------:	|:------:	|:--------------------------------------------------------:	|:--------:	|
 | apiURL        	| String 	| required; endpoint used for login.                       	| none     	|
 | secretKey     	| String 	| required; a string-based key to be used later for login. 	| none     	|
+| icon     				| Boolean | show/hide ALL icon. 																			| true     	|
 | emailText     	| String 	| label for email input                                    	| Email    	|
 | passwordText  	| String 	| label for password input                                 	| Password 	|
 | buttonText    	| String 	| label for login button                                   	| Login    	|
@@ -52,6 +53,7 @@ Vue.use(LoginComponent)
 | passwordClass 	| String 	| custom class that can be added to password input         	| none     	|
 | buttonClass   	| String 	| custom class that can be added to login button           	| none     	|
 | wrapperClass  	| String  | custom class that <b>overwrites</b> the current default wrapper class  | login-wrapper 	|
+| inputGroupClass   	| String 	| custom class that can be added to input field group(label+input)           	| field     	|
 
 ## Listeners
 | Listener Name 	|  Type  	|                        Description                       	|  Default 	|

@@ -7,6 +7,7 @@
 				@loginSuccess="actionSuccessLogin"
 				@loginError="actionErrorLogin"
 				:errorText="errorFormText"
+				inputGroupClass="border-lg border-blue"
 				>
 				<!-- remove all div inside to see default component -->
 				<!-- <div>Test</div> -->
@@ -57,5 +58,17 @@ export default {
 }
 .myInputClass {
 	font-size: 32px;
+}
+
+.border-lg {
+	border: solid 5px black;
+}
+
+.border-blue {
+	border-color: blue;
+}
+
+.label {
+	color: green;
 }
 </style>

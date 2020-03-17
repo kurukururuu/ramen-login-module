@@ -1,10 +1,9 @@
 <template>
 	<div v-if="secretKey" :class="wrapperClass ? wrapperClass : 'login-wrapper'">
-		<slot v-if="hasSlot"></slot>
-		<div v-else>
+		<div>
 			<form>
 				<!-- email field -->
-				<div class="field">
+				<div :class="'field ' + (inputGroupClass ? (' ' + inputGroupClass) : '')">
 					<label class="label">{{ emailText }}</label>
 					<div class="control has-icons-left has-icons-right">
 						<input
@@ -14,18 +13,19 @@
 							:class="'input ' + ((validationState.email.state == false) ? 'is-danger' : '') + (emailClass ? (' ' + emailClass) : '')"
 							type="email"
 							placeholder="youremail@email.com">
-						<span class="icon is-small is-left">
+						<span v-if="icon" class="icon is-small is-left">
 							<i class="fas fa-envelope"></i>
 						</span>
-						<span v-if="validationState.email.state == false" class="icon is-small is-right is-success">
+						<span v-if="icon && (validationState.email.state == false)" class="icon is-small is-right is-success">
 							<i class="fas fa-exclamation-triangle"></i>
 						</span>
 					</div>
 					<p v-if="!validationState.email.state" class="help is-danger">{{ validationState.email.text }}</p>
 				</div>
+				
 
 				<!-- password field -->
-				<div class="field">
+				<div :class="'field ' + (inputGroupClass ? (' ' + inputGroupClass) : '')">
 					<label class="label">{{ passwordText }}</label>
 					<div class="control has-icons-left has-icons-right">
 						<input
@@ -34,7 +34,7 @@
 							:class="'input ' + ((validationState.password.state == false) ? 'is-danger' : '') + (passwordClass ? (' ' + passwordClass) : '')"
 							type="password" placeholder="********"
 							autocomplete="off">
-						<span class="icon is-small is-left">
+						<span v-if="icon" class="icon is-small is-left">
 							<i class="fas fa-key"></i>
 						</span>
 						<!-- stupid conditional icon rendering -->
@@ -50,7 +50,7 @@
 								</span>
 							</div>
 						</div> -->
-						<span v-if="validationState.password.state == false" class="icon is-small is-right is-success">
+						<span v-if="icon && (validationState.password.state == false)" class="icon is-small is-right is-success">
 							<i class="fas fa-exclamation-triangle"></i>
 						</span>
 					</div>
@@ -70,6 +70,12 @@ export default {
 	props: {
 		apiURL: String,
 		secretKey: String,
+		icon: {
+			type: Boolean,
+			default() {
+				return true
+			}
+		},
 		emailText: {
 			type: String,
 			default: 'Email'
@@ -95,7 +101,8 @@ export default {
 		emailClass: String,
 		passwordClass: String,
 		buttonClass: String,
-		wrapperClass: String
+		wrapperClass: String,
+		inputGroupClass: String
 	},
 	data() {
 		return {
