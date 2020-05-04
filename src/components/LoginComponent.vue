@@ -12,7 +12,7 @@
 							@keydown.enter="actionLogin"
 							:class="'input ' + ((validationState.email.state == false) ? 'is-danger' : '') + (emailClass ? (' ' + emailClass) : '')"
 							type="email"
-							placeholder="youremail@email.com">
+							:placeholder="placeholderText">
 						<span v-if="icon" class="icon is-small is-left">
 							<i class="fas fa-envelope"></i>
 						</span>
@@ -87,6 +87,10 @@ export default {
 		buttonText: {
 			type: String,
 			default: 'Login'
+		},
+		placeholderText: {
+			type: String,
+			default: 'youremail@email.com'
 		},
 		errorText: {
 			type: Object,
